@@ -16,20 +16,20 @@ export const movieThunks = {
 
     loadMovieById: createAsyncThunk('movieSlice/loadMovie', async (id: string, thunkAPI) => {
         try {
-            return  await apiService.get<MovieType>(urlBuilder(urls.movies.byId(id)))
+            return  await apiService.get<MovieType>(urlBuilder(urls.movies.getById(id)))
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     }),
 
     loadMovieByQuery: createAsyncThunk('movieSlice/loadMovie', async (query: string, thunkAPI) => {
         try {
-            return await apiService.get<MovieType>(urlBuilder(urls.searchMovie, {query}))
+            return await apiService.get<MovieType>(urlBuilder(urls.movies.search, {query}))
 
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     }),
 
     loadGenres: createAsyncThunk('movieSlice/loadGenres', async (_, thunkAPI) => {
         try {
-            return await apiService.get<GenreType[]>(urlBuilder(urls.genres))
+            return await apiService.get<GenreType[]>(urlBuilder(urls.movies.genres.all))
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     })
 }
