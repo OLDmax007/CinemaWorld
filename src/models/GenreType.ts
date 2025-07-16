@@ -1,4 +1,4 @@
-export type GenresType = {
+export type GenresListType = {
 	genres: GenreType[];
 }
 export type GenreType  ={

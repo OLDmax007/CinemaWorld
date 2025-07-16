@@ -4,7 +4,7 @@ import type {MovieType} from "../../../models/MovieType.ts";
 import {urlBuilder} from "../../../helpers/urlBuilder.ts";
 import {urls} from "../../../constants/urls.ts";
 import {handleError} from "../../../helpers/handleError.ts";
-import type {GenreType} from "../../../models/GenreType.ts";
+import type {GenresListType} from "../../../models/GenreType.ts";
 
 export const movieThunks = {
     loadMovies: createAsyncThunk('movieSlice/loadMovies', async (_, thunkAPI) => {
@@ -29,7 +29,7 @@ export const movieThunks = {
 
     loadGenres: createAsyncThunk('movieSlice/loadGenres', async (_, thunkAPI) => {
         try {
-            return await apiService.get<GenreType[]>(urlBuilder(urls.movies.genres.all))
+            return await apiService.get<GenresListType>(urlBuilder(urls.movies.genres.all))
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     })
 }
