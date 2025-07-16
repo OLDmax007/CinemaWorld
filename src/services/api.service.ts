@@ -6,8 +6,8 @@ export const apiService = {
         try {
             const {data} =await axiosInstance.get<T>(url)
             return data
-        } catch (e) {
-           throw handleError(e)
+        } catch (error) {
+           throw handleError(error)
         }
     }
 }
