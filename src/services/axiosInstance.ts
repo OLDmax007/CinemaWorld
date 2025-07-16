@@ -1,6 +1,7 @@
 import axios from "axios";
-import {baseUrl} from "../../constants/urls.ts";
-import {authConfig} from "../../constants/auth.config.ts";
+import {baseUrl} from "../constants/urls.ts";
+import {authConfig} from "../constants/auth.config.ts";
+
 
 export const axiosInstance = axios.create(
     {
@@ -12,7 +13,6 @@ export const axiosInstance = axios.create(
 )
 
 axiosInstance.interceptors.request.use((request) => {
-    console.log(request)
     request.headers.Authorization = `Bearer ${authConfig.token}`
     return request
 })

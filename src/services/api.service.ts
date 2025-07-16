@@ -1,5 +1,5 @@
-import {axiosInstance} from "./instances/axiosInstance.ts";
-import axios from "axios";
+import {axiosInstance} from "./axiosInstance.ts";
+import {handleError} from "../helpers/handleError.ts";
 
 export const apiService = {
     get: async <T>(url: string):Promise<T> => {
@@ -11,11 +11,5 @@ export const apiService = {
         } catch (e) {
            throw handleError(e)
         }
-    }
-}
-
-const handleError = (error: unknown) => {
-    if (axios.isAxiosError(error)) {
-        return error.message
     }
 }
