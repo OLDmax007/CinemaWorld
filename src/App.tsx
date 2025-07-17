@@ -5,7 +5,6 @@ import {Provider} from "react-redux";
 import {store} from "./redux/stores/store.ts";
 
 function App() {
-
     return (
         <Provider store={store}>
             <RouterProvider router={router}/>
