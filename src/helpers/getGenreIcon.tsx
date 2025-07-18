@@ -1,23 +1,23 @@
 import type {GenreType} from "../models/GenreType.ts";
 import type {ReactNode} from "react";
-import TankIcon from '../assets/icons/tank.svg';
-import AdventureMapIcon from '../assets/icons/adventure-map.svg';
-import TvMovieIcon from '../assets/icons/tv-movie.svg';
-import BrokenHeartIcon from '../assets/icons/broken-heart.svg';
-import ClownHatIcon from '../assets/icons/clown-hat.svg';
-import ClueIcon from '../assets/icons/clue.svg';
-import CowboyHatIcon from '../assets/icons/cowboy-hat.svg';
-import DetectiveIcon from '../assets/icons/detective.svg';
-import DragonIcon from '../assets/icons/dragon.svg';
-import FamilyIcon from '../assets/icons/family.svg';
-import GraveIcon from '../assets/icons/grave.svg';
-import GunIcon from '../assets/icons/gun.svg';
-import HistoryIcon from '../assets/icons/history.svg';
-import KnifeIcon from '../assets/icons/knife.svg';
-import MusicIcon from '../assets/icons/music.svg';
-import PencilIcon from '../assets/icons/pencil.svg';
-import RomanceIcon from '../assets/icons/romance.svg';
-import AlienIcon from '../assets/icons/alien.svg';
+import TankIcon from '../assets/icons/tank.svg?react';
+import AdventureMapIcon from '../assets/icons/adventure-map.svg?react';
+import TvMovieIcon from '../assets/icons/tv-movie.svg?react';
+import BrokenHeartIcon from '../assets/icons/broken-heart.svg?react';
+import ClownHatIcon from '../assets/icons/clown-hat.svg?react';
+import ClueIcon from '../assets/icons/clue.svg?react';
+import CowboyHatIcon from '../assets/icons/cowboy-hat.svg?react';
+import DetectiveIcon from '../assets/icons/detective.svg?react';
+import DragonIcon from '../assets/icons/dragon.svg?react';
+import FamilyIcon from '../assets/icons/family.svg?react';
+import GraveIcon from '../assets/icons/grave.svg?react';
+import GunIcon from '../assets/icons/gun.svg?react';
+import HistoryIcon from '../assets/icons/history.svg?react';
+import KnifeIcon from '../assets/icons/knife.svg?react';
+import MusicIcon from '../assets/icons/music.svg?react';
+import PencilIcon from '../assets/icons/pencil.svg?react';
+import RomanceIcon from '../assets/icons/romance.svg?react';
+import AlienIcon from '../assets/icons/alien.svg?react';
 
 
 export const getGenreIcon = (genre: GenreType): ReactNode => {
