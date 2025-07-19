@@ -1,5 +1,5 @@
 import type {GenreType} from "../models/GenreType.ts";
-import type {ReactNode} from "react";
+import type {FC} from "react";
 import TankIcon from '../assets/icons/tank.svg?react';
 import AdventureMapIcon from '../assets/icons/adventure-map.svg?react';
 import TvMovieIcon from '../assets/icons/tv-movie.svg?react';
@@ -19,65 +19,66 @@ import PencilIcon from '../assets/icons/pencil.svg?react';
 import RomanceIcon from '../assets/icons/romance.svg?react';
 import AlienIcon from '../assets/icons/alien.svg?react';
 
-
-export const getGenreIcon = (genre: GenreType): ReactNode => {
+export const getGenreIcon = (genre: GenreType): FC<{ className?: string }> => {
     switch (genre.id || genre.name) {
         case 28:
         case "Action":
-            return <GunIcon/>;
+            return GunIcon;
         case 12:
         case "Adventure":
-            return <AdventureMapIcon/>;
+            return AdventureMapIcon;
         case 16:
         case "Animation":
-            return <PencilIcon/>;
+            return PencilIcon;
         case 35:
         case "Comedy":
-            return <ClownHatIcon/>;
+            return ClownHatIcon;
         case 80:
         case "Crime":
-            return <DetectiveIcon/>;
+            return DetectiveIcon;
         case 99:
         case "Documentary":
-            return <PencilIcon/>;
+            return PencilIcon;
         case 18:
         case "Drama":
-            return <BrokenHeartIcon/>;
+            return BrokenHeartIcon;
         case 10751:
         case "Family":
-            return <FamilyIcon/>;
+            return FamilyIcon;
         case 14:
         case "Fantasy":
-            return <DragonIcon/>;
+            return DragonIcon;
         case 36:
         case "History":
-            return <HistoryIcon/>;
+            return HistoryIcon;
         case 27:
         case "Horror":
-            return <GraveIcon/>;
+            return GraveIcon;
         case 10402:
         case "Music":
-            return <MusicIcon/>;
+            return MusicIcon;
         case 9648:
         case "Mystery":
-            return <ClueIcon/>;
+            return ClueIcon;
         case 10749:
         case "Romance":
-            return <RomanceIcon/>;
+            return RomanceIcon;
         case 878:
         case "Science Fiction":
-            return <AlienIcon/>;
+            return AlienIcon;
         case 10770:
         case "TV Movie":
-            return <TvMovieIcon/>;
+            return TvMovieIcon;
         case 53:
         case "Thriller":
-            return <KnifeIcon/>;
+            return KnifeIcon;
         case 10752:
         case "War":
-            return <TankIcon/>;
+            return TankIcon;
         case 37:
         case "Western":
-            return <CowboyHatIcon/>;
+            return CowboyHatIcon;
+        default:
+            return CowboyHatIcon
     }
 };
