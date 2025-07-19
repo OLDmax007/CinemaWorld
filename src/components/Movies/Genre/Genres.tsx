@@ -2,15 +2,17 @@ import type {FC} from "react";
 import type {GenreType} from "../../../models/GenreType.ts";
 import GenreBadge from "./GenreBadge.tsx";
 
-type GenresProps = {
+export type GenresProps = {
     genres: GenreType[]
+    variant: 'default' | 'filter'
+    handleClick?: (genre?: GenreType) => void
 }
 
-const Genres:FC<GenresProps> = ({genres}) => {
+const Genres:FC<GenresProps> = ({genres,variant, handleClick}) => {
     return (
-        <div>
+        <div >
             {genres.map((genre) =>
-                <GenreBadge genre={genre}/>
+                <GenreBadge variant={variant} genre={genre} handleClick={handleClick ? () => handleClick(genre) : undefined}/>
             )}
         </div>
     );
