@@ -1,4 +1,4 @@
 import {useSelector} from "react-redux";
-import {store} from "../redux/stores/store.ts";
+import type {RootStateType} from "../models/RootStateType.ts";
 
-export const useAppSelector = useSelector.withTypes<ReturnType<typeof store.getState>>();
+export const useAppSelector = useSelector.withTypes<RootStateType>();
