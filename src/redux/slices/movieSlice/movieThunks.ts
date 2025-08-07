@@ -4,7 +4,7 @@ import type {MovieType} from "../../../models/MovieType.ts";
 import {urlBuilder} from "../../../helpers/urlBuilder.ts";
 import {urls} from "../../../constants/urls.ts";
 import {handleError} from "../../../helpers/handleError.ts";
-import type {GenresListType} from "../../../models/GenreType.ts";
+import type {GenreType} from "../../../models/GenreType.ts";
 import type {TMDBResDataType, TMDBResQueryType} from "../../../models/TMDBResponseType.ts";
 
 export const movieThunks = {
@@ -21,16 +21,16 @@ export const movieThunks = {
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     }),
 
-    loadMovieByQuery: createAsyncThunk('movieSlice/loadMovie', async (query: string, thunkAPI) => {
+    loadMoviesByQuery: createAsyncThunk('movieSlice/loadMoviesByQuery', async (query: string, thunkAPI) => {
         try {
-            return await apiService.get<MovieType>(urlBuilder(urls.movies.search, {query}))
+            return await apiService.get<TMDBResDataType & TMDBResQueryType>(urlBuilder(urls.movies.search, {query}))
 
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     }),
 
     loadGenres: createAsyncThunk('movieSlice/loadGenres', async (_, thunkAPI) => {
         try {
-            return await apiService.get<GenresListType>(urlBuilder(urls.movies.genres.all))
+            return await apiService.get<GenreType[]>(urlBuilder(urls.movies.genres.all))
         } catch (error) { return  thunkAPI.rejectWithValue(handleError(error)) }
     })
 }
