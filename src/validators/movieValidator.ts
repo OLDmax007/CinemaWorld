@@ -1,9 +1,9 @@
 import * as Joi from "joi";
-import {regexp} from "../constants/regexp.ts";
+import {regexps} from "../constants/regexps.ts";
 
 export const movieValidator = Joi.object({
     movieName: Joi.string()
-        .pattern(regexp.movieName)
+        .pattern(regexps.movieName)
         .trim()
         .max(100)
         .min(1)
