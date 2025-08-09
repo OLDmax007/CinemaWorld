@@ -9,6 +9,6 @@ export const  router = createBrowserRouter([
     {path: '', element: <MainLayout/>, errorElement: <ErrorPage/>,children: [
             {index: true, element: <HomePage/>},
             {path: '/movies', element: <MoviesPage/>},
-            {path: '/movies:genre', element: <MoviesPage/>}
+            {path: '/movies/:genreName', element: <MoviesPage/>}
         ]},
 ])
