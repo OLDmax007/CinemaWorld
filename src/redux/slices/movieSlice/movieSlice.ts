@@ -15,8 +15,8 @@ export const movieSlice = createSlice({
                 state.movie = action.payload
             })
         .addCase(movieThunks.loadGenres.fulfilled,
-            (state, action: PayloadAction<GenreType[]>) => {
-                state.genres = action.payload
+            (state, action: PayloadAction<{genres: GenreType[]}>) => {
+                state.genres = action.payload.genres
             })
         .addMatcher(isFulfilled(movieThunks.loadMovies, movieThunks.loadMoviesByQuery),
             (state, action: PayloadAction<TMDBResDataType & TMDBResQueryType>) => {
