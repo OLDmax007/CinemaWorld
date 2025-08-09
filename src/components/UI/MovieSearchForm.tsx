@@ -3,19 +3,23 @@ import {movieThunks} from "../../redux/slices/movieSlice/movieThunks.ts";
 import {useAppDispatch} from "../../hooks/useAppDispatch.ts";
 import {joiResolver} from "@hookform/resolvers/joi";
 import {movieValidator} from "../../validators/movieValidator.ts";
+import type {FC} from "react";
+import type {MovieSearchFormDataType} from "../../models/MovieSearchFormDataType.ts";
 
-type FormDataProps = {
-    movieName: string
-};
 
-const MovieSearchForm = () => {
+type MovieSearchFormProps = {
+    page: string
+}
 
+const MovieSearchForm: FC<MovieSearchFormProps> = ({page}) => {
     const dispatch = useAppDispatch();
-    const {handleSubmit, register, formState: {errors, isValid}} = useForm<FormDataProps>({resolver: joiResolver(movieValidator), mode: 'onSubmit'});
-
-    console.log(errors.movieName?.message)
-    const handleSearchSubmit = (data: FormDataProps) => {
-        dispatch(movieThunks.loadMoviesByQuery(data.movieName));
+    const {
+        handleSubmit,
+        register,
+        formState: {errors, isValid}
+    } = useForm<MovieSearchFormDataType>({resolver: joiResolver(movieValidator), mode: 'onSubmit'});
+    const handleSearchSubmit = (data: MovieSearchFormDataType) => {
+        dispatch(movieThunks.loadMoviesByQuery({query: data.movieName, page}));
     };
 
     return (
@@ -34,7 +38,8 @@ const MovieSearchForm = () => {
             </div>
             {errors && <div>{errors.movieName?.message}</div>}
             <button
-                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg" disabled={!isValid}>
+                className="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-500 text-white font-bold rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
+                disabled={!isValid}>
                 Search
             </button>
         </form>
