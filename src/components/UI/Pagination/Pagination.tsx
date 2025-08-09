@@ -4,13 +4,12 @@ import type {TMDBResQueryType} from "../../../models/TMDBResponseType.ts";
 
 type PaginationProps = {
     queryMeta: TMDBResQueryType | null
-    maxPagesDefault: number
+    maxPages: number
 }
 
-const Pagination: FC<PaginationProps> = ({queryMeta, maxPagesDefault}) => {
+const Pagination: FC<PaginationProps> = ({queryMeta, maxPages}) => {
     const [searchParams, setSearchParams] = useSearchParams();
     const currentPage = Number(searchParams.get('page')) || queryMeta?.page || 1;
-    const maxPages = queryMeta?.total_pages || maxPagesDefault
 
     const handlePageChange = (page: number) => {
         if (page < 1 || page > maxPages) return
@@ -18,7 +17,6 @@ const Pagination: FC<PaginationProps> = ({queryMeta, maxPagesDefault}) => {
         setSearchParams(searchParams);
     };
 
-    console.log(currentPage)
     return (
         <div>
             <button onClick={() => handlePageChange(1)}>First page</button>
