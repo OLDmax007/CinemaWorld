@@ -23,6 +23,7 @@ import DefaultIcon from '../assets/icons/default-movie.svg?react';
 
 export const getGenreIcon = (genre: GenreType): FC<{ className?: string }> => {
     switch (genre.name) {
+        case 'All Movies' : return DefaultIcon
         case "Action": return ActionIcon;
         case "Adventure": return AdventureIcon;
         case "Animation": return AnimationIcon;
