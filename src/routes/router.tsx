@@ -5,10 +5,12 @@ import MoviesPage from "../pages/MoviesPage.tsx";
 import ErrorPage from "../pages/ErrorPage.tsx";
 
 
-export const  router = createBrowserRouter([
-    {path: '', element: <MainLayout/>, errorElement: <ErrorPage/>,children: [
+export const router = createBrowserRouter([
+    {
+        path: '', element: <MainLayout/>, errorElement: <ErrorPage/>, children: [
             {index: true, element: <HomePage/>},
             {path: '/movies', element: <MoviesPage/>},
-            {path: '/movies/:genreName', element: <MoviesPage/>}
-        ]},
-])
+            {path: '/:genreName/:genreId', element: <MoviesPage/>}
+        ]
+
+    }])
