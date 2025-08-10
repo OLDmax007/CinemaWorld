@@ -5,14 +5,16 @@ import GenreBadge from "./GenreBadge.tsx";
 export type GenresProps = {
     genres: GenreType[]
     variant: 'default' | 'filter'
-    handleClick?: (genreId: number) => void;
 }
 
-const Genres:FC<GenresProps> = ({genres,variant, handleClick}) => {
+const Genres:FC<GenresProps> = ({genres,variant}) => {
+    const allGenre = { id: 0, name: 'All Movies' };
+    const genresWithAll = [allGenre,...genres]
+
     return (
         <div>
-            {genres.map((genre, index) =>
-                <GenreBadge key={index} variant={variant} genre={genre}  handleClick={handleClick ? () => handleClick(genre.id) : undefined}/>
+            {genresWithAll.map((genre) =>
+                <GenreBadge key={genre.id} variant={variant} genre={genre}/>
             )}
         </div>
     );
