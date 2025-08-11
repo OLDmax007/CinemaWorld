@@ -10,6 +10,18 @@ export const handleError = (error: unknown) => {
         return error.message;
     }
 
+    if (
+        typeof error === "object" &&
+        error !== null &&
+        "status" in error &&
+        "statusText" in error &&
+        "data" in error
+    ) {
+        const errObj = error as any;
+        return `${errObj.status} ${errObj.statusText}: ${errObj.data}`;
+    }
+
+
     if (typeof error === 'string') {
         return error
     }
