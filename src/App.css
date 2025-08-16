@@ -1,0 +1,124 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    background: #111111;
+    color: white;
+    height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header, footer {
+    overflow: auto;
+    background: #000000;
+}
+
+
+header, footer, main {
+    padding: 10px 25px 10px 25px;
+}
+
+a:hover, svg:hover {
+    opacity: 0.5;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b, #ffcc00, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 5px;
+}
+
+
+.user-info {
+    display: flex;
+    gap: 10px
+}
+
+.user-info img {
+    width: 50px;
+    height: 50px;
+}
+
+footer {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+footer ul, header ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+}
+
+footer svg {
+    fill: white;
+}
+
+.download-nav  a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 25px;
+}
+
+.download-nav span {
+    display: block;
+}
+
+.movies-filters-section {
+    display: grid;
+    grid-template-columns: 5fr 3fr;
+    width: 100%;
+    padding: 25px;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column
+}
+
+
+@media screen and (max-width: 800px) {
+    .movies-filters-section {
+        grid-template-columns: 1fr;
+    }
+
+    .movies-filters-section > .form-wrapper {
+        order: 2;
+    }
+
+    .movies-filters-section > .genres-list-wrapper-adaptive {
+        order: 1;
+    }
+
+    .form-wrapper-adaptive {
+        margin-top: 50px;
+    }
+
+    .genres-list {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    }
+}
