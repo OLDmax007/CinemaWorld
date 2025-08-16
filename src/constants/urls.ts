@@ -7,6 +7,7 @@ export const urls = {
                 search: '/search/movie',
                 genres: {
                         all: '/genre/movie/list'
-                }
+                },
+                posterUrl: 'https://image.tmdb.org/t/p/w400/'
         },
 }
