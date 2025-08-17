@@ -1,27 +1,23 @@
 import styles from "./star.module.css";
-import type {FC} from "react";
+import {type FC} from "react";
 import type {StarsRatingType} from "./StarsRating.tsx";
 
 type StarType = Omit<StarsRatingType, 'count' | 'defaultRating' | 'icon'> & {
-    star: string
+    icon: FC<{ className: string }>
     isActive: boolean
     onMouseEnter: () => void;
     onMouseLeave: () => void;
 }
 
 
-const Star: FC<StarType> = ({onMouseEnter, onMouseLeave, star, iconSize, unselectedColor, selectedColor, isActive}) => {
+const Star: FC<StarType> = ({onMouseEnter, onMouseLeave, icon: Icon, isActive}) => {
     return (
         <span
-            className={styles.star}
-            style={{
-                fontSize: iconSize,
-                color: isActive ? selectedColor : unselectedColor,
-            }}
+            className={styles.starWrapper}
             onMouseEnter={onMouseEnter}
             onMouseLeave={onMouseLeave}
         >
-            {star}
+            <Icon className={`${styles.star} ${isActive ? styles.starActive : styles.starNoActive}`}/>
         </span>
     );
 };
