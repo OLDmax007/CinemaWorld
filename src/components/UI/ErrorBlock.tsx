@@ -7,7 +7,7 @@ const ErrorBlock = () => {
     const errorMessage = handleError(error);
     return (
             <div className="flex flex-col gap-2 items-center justify-center h-screen">
-                <h2>Something went wrong</h2>
+                <h2>Page Not Found</h2>
                 <span className="mb-4 text-red-500 italic"><i>{errorMessage}</i></span>
                 <LinkHome/>
             </div>
