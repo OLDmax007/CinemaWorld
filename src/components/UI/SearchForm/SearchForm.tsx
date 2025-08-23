@@ -6,6 +6,7 @@ import {movieValidator} from "../../../validators/movieValidator.ts";
 import type {FC} from "react";
 import type {MovieSearchFormDataType} from "../../../models/MovieSearchFormDataType.ts";
 import styles from './search-form.module.css'
+import {useNavigate} from "react-router-dom";
 
 
 type MovieSearchFormProps = {
@@ -14,6 +15,7 @@ type MovieSearchFormProps = {
 
 const SearchForm: FC<MovieSearchFormProps> = ({page}) => {
     const dispatch = useAppDispatch();
+    const navigate = useNavigate()
     const {
         handleSubmit,
         register,
@@ -21,10 +23,11 @@ const SearchForm: FC<MovieSearchFormProps> = ({page}) => {
     } = useForm<MovieSearchFormDataType>({resolver: joiResolver(movieValidator), mode: 'all'});
     const handleSearchSubmit = (data: MovieSearchFormDataType) => {
         dispatch(movieThunks.loadMoviesByQuery({query: data.movieName, page}));
+        navigate('/search-movies')
     };
 
     return (
-        <form onSubmit={handleSubmit(handleSearchSubmit)}>
+        <form className={'flex-col'} onSubmit={handleSubmit(handleSearchSubmit)}>
             <div className={`${styles.formWrapper } form-wrapper-adaptive`}>
                 <div className={styles.inputWrapper}>
                     <label htmlFor="movieName">Search movies</label>
@@ -39,7 +42,7 @@ const SearchForm: FC<MovieSearchFormProps> = ({page}) => {
                     Search
                 </button>
             </div>
-            <div className={styles.errorContainer}>{errors.movieName && errors.movieName.message}</div>
+            <span className={'text-red-500 italic'}>{errors.movieName && errors.movieName.message}</span>
         </form>
     );
 };
