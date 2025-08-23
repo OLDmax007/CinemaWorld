@@ -4,8 +4,8 @@ import {useAppDispatch} from './useAppDispatch';
 import {useAppSelector} from './useAppSelector';
 import type {RootStateType} from "../models/RootStateType.ts";
 
-export const useAppThunkData = <T = unknown, Arg = any>(
-    thunk: () => AsyncThunkAction<any, Arg, object>,
+export const useAppThunkData = <T = unknown, Arg = unknown>(
+    thunk: () => AsyncThunkAction<unknown , Arg, object>,
     selector?: (state: RootStateType) => T
 ): T | null => {
 
