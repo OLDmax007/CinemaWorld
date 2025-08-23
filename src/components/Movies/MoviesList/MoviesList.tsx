@@ -1,27 +1,43 @@
 import {useAppSelector} from "../../../hooks/useAppSelector.ts";
 import Pagination from "../../UI/Pagination/Pagination.tsx";
 import type {MovieType} from "../../../models/MovieType.ts";
-import {type FC} from "react";
-import MovieSearchForm from "../../UI/MovieSearchForm.tsx";
+import {useCallback} from "react";
+import MoviesListCard from "./MoviesListCard.tsx";
+import {useAppPageParam} from "../../../hooks/useAppPageParam.ts";
+import {movieThunks} from "../../../redux/slices/movieSlice/movieThunks.ts";
+import {useAppThunkData} from "../../../hooks/useAppThunkData.ts";
+import styles from './movies.module.css'
+import RenderStatus from "../../UI/RenderStatus.tsx";
+import {useParams} from "react-router-dom";
+import EmptyMovies from "../../UI/EmptyMovies.tsx";
 
-type MovieListProps = {
-    movies: MovieType[]
-    page: string
-}
 
+const MoviesList = () => {
+    const {queryMeta, isLoadingMovies} = useAppSelector(state => state)
+    const {genreId} = useParams<{ genreId: string }>()
+    const page = useAppPageParam()
+    const loadMoviesCallback = useCallback(() => {
+        return movieThunks.loadMovies({
+            page,
+            ...(genreId ? {with_genres: genreId.toString()} : {})
+        });
+    }, [page, genreId]);
 
-const MoviesList:FC<MovieListProps> = ({movies, page}) => {
-    const queryMeta = useAppSelector(state => state.queryMeta)
+    const movies = useAppThunkData<MovieType[]>(loadMoviesCallback, (state) => state.movies)
+
+    if (!movies || !movies.length) return <EmptyMovies message="Movies not found"/>;
+
     return (
-        <main>
-            <ul>
-                {movies.map((movie, index) => <li key={index}>
-                    {movie.title}
-                </li>  )}
-            </ul>
-            <MovieSearchForm page={page}/>
-            <Pagination queryMeta={queryMeta} maxPages={500}/>
-        </main>
+        <section className={styles.moviesSection}>
+            <RenderStatus isLoading={isLoadingMovies}>
+                <ul className={styles.moviesList}>
+                    {movies.map((movie) => (
+                        <MoviesListCard key={movie.id} movie={movie}/>
+                    ))}
+                </ul>
+                <Pagination queryMeta={queryMeta}/>
+            </RenderStatus>
+        </section>
     );
 };
 
