@@ -1,0 +1,59 @@
+
+.movieInfoSection, .movieInfoSection > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.movieInfoSection {
+    flex-direction: column;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.movieInfoSection > div {
+    gap: 2rem;
+    width: 100%;
+    max-width: 1000px;
+}
+
+.movieInfoList {
+    font-size: 18px;
+    flex: 2 1 400px;
+    padding: 1rem;
+}
+
+.movieInfoList strong {
+    color: sandybrown;
+    text-decoration: underline;
+}
+
+.movieInfoSection video {
+    width: 100%;
+    max-width: 1000px;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+    .movieInfoSection> div {
+        flex-direction: column;
+    }
+
+    .movieInfoList {
+        scroll-behavior: auto;
+        width: 100%;
+    }
+
+    .movieInfoSection video {
+        width: 200px;
+    }
+
+    .movieInfoSection> div {
+        flex-direction: column;
+    }
+}
+
