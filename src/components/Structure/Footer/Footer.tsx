@@ -6,9 +6,11 @@ import DownloadNav from "./DownloadNav.tsx";
 const Footer = () => {
     return (
         <footer id={'footer'}>
-            <SocialMediaNav/>
-            <FooterNav/>
-            <DownloadNav/>
+            <div className="container">
+                <SocialMediaNav/>
+                <FooterNav/>
+                <DownloadNav/>
+            </div>
         </footer>
     );
 };

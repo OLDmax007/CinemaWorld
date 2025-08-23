@@ -5,11 +5,13 @@ import {Link} from "react-router-dom";
 const Header = () => {
     return (
   <header>
-      <Link to={'/'}>
-          <h1>CinemaWorld</h1>
-      </Link>
-      <Menu/>
-      <UserInfo/>
+      <div className={'container'}>
+          <Link to={'/'}>
+              <h1>CinemaWorld</h1>
+          </Link>
+          <Menu/>
+          <UserInfo/>
+      </div>
   </header>
     );
 };
