@@ -1,4 +1,3 @@
-import styles from "../Movies/MoviesList/movies.module.css";
 import LinkHome from "./LinkHome.tsx";
 import type {FC} from "react";
 
@@ -8,7 +7,7 @@ type EmptyMoviesProps = {
 
 const EmptyMovies:FC<EmptyMoviesProps> = ({message}) => {
     return (
-        <div className={styles.emptyMovies}>
+        <div className={'flex h-full w-full flex-col justify-center items-center'}>
             <h2>{message}</h2>
             <LinkHome/>
         </div>
