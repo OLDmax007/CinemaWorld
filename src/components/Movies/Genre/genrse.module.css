@@ -1,32 +1,26 @@
-
 .genresList {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(75px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
-}
-
-.genresList li {
-    height: 50px;
-
+    width: 100%;
+    margin: 25px 0 25px 0;
 }
 
 .genresList a {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: repeating-linear-gradient(
+            135deg,
+            #f5f5f5 0px,
+            #f5f5f5 40px,
+            #d9d9d9 40px,
+            #d9d9d9 80px
+    );
     text-transform: uppercase;
-    background-size: 200% auto;
     box-shadow: 0 0 10px #eee;
-    border-radius: 10px;
-    background-image: linear-gradient(to right, #f2f2f2 0%, #e6e6e6 51%, #f2f2f2 100%);
-    color: #222;
     transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
 .genresList a:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
-    background-position: right center;
-    color: #222;
-    text-decoration: none;
 }
+

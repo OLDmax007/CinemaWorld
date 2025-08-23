@@ -34,34 +34,4 @@
 
 .formButton {
     padding: 10px 16px;
-    border-radius: 9999px;
-    border: none;
-    background: linear-gradient(to right, #3b82f6, #8b5cf6);
-    color: white;
-    font-weight: bold;
-    cursor: pointer;
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.formButton:hover:not(:disabled) {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    background: linear-gradient(to right, #60a5fa, #a78bfa);
-}
-
-.formButton:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-
-.errorContainer {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    min-height: 25px;
-    color: red;
-    font-size: 14px;
-    margin-top: 4px;
-    font-style: italic;
-    transition: opacity 0.3s ease;
 }
