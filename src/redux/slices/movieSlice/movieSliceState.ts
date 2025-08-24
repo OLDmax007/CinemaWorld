@@ -7,6 +7,11 @@ export type movieSliceStateType = {
     genres: GenreType[]
     queryMeta: TMDBResQueryType | null
     movie: MovieType | null
+    loadingStates: {
+        isLoadingMovie: boolean;
+        isLoadingMovies: boolean;
+        isLoadingGenres: boolean;
+    }
 }
 
 export const movieSliceState: movieSliceStateType = {
@@ -14,4 +19,9 @@ export const movieSliceState: movieSliceStateType = {
     genres: [],
     queryMeta: null,
     movie: null,
+    loadingStates: {
+        isLoadingMovie: false,
+        isLoadingMovies: false,
+        isLoadingGenres: false
+    }
 }
