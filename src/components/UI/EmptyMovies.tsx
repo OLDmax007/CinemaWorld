@@ -7,7 +7,7 @@ type EmptyMoviesProps = {
 
 const EmptyMovies:FC<EmptyMoviesProps> = ({message}) => {
     return (
-        <div className={'flex h-full w-full flex-col justify-center items-center'}>
+        <div className={'flex justify-center items-center min-h-screen flex-col'}>
             <h2>{message}</h2>
             <LinkHome/>
         </div>
