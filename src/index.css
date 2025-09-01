@@ -1,1 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 @import "tailwindcss";
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans-serif;
+    font-weight: 400;
+    font-optical-sizing: auto;
+    background: #111111;
+    color: white;
+}
+
+main {
+    min-height: 100vh;
+}
+
+
+header, footer, main {
+    padding: 10px 25px 10px 25px;
+}
+
+header, footer {
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+footer {
+    background: #000;
+    padding: 2rem 1rem;
+}
+
+
+header, footer {
+    width: 100%;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+a:hover, svg:hover {
+    opacity: 0.5;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ff416c, #ff4b2b, #ffcc00, #4facfe, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    font-family: 'Segoe UI', sans-serif;
+    letter-spacing: 5px;
+}
+
+h2 {
+    font-size: 36px;
+    font-weight: bold;
+}
+
+button, .link-home {
+    border-radius: 50px;
+    color: white;
+    border: none;
+    background: linear-gradient(to right, #3b82f6, #8b5cf6);
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(to right, #60a5fa, #a78bfa);
+}
+
+button:disabled {
+    background: linear-gradient(to right, #a3bffa, #c4a3f6);
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+
+form, footer, footer ul, header ul, .download-nav a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    padding: 20px;
+    flex-direction: column;
+    gap: 5px;
+}
+
+footer ul, header ul {
+    gap: 25px;
+}
+
+footer svg {
+    fill: white;
+}
+
+.download-nav a {
+    gap: 10px;
+    padding: 25px;
+}
+
+.download-nav span {
+    display: block;
+}
+
+@media screen and (max-width: 800px) {
+    header > .container, h1 {
+        font-size: 16px;
+        justify-content: center;
+    }
+
+    header ul, footer ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px
+    }
+}
+
