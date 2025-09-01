@@ -1,18 +1,18 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import type {MovieType} from "../../../models/MovieType.ts";
-import {urlBuilder} from "../../../helpers/urlBuilder.ts";
-import {urls} from "../../../constants/urls.ts";
-import type {GenreType} from "../../../models/GenreType.ts";
-import type {TMDBResDataType, TMDBResQueryType} from "../../../models/TMDBResponseType.ts";
-import type {QueryParamsType} from "../../../models/QueryParamsType.ts";
-import {apiThunk} from "../../../helpers/apiThunk.ts";
+import {urlBuilder} from "@helpers/urlBuilder.ts";
+import {urls} from "@constants/urls.ts";
+import type {GenreType} from "@models/GenreType.ts";
+import type {TMDBResDataType, TMDBResQueryType} from "@models/TMDBResponseType.ts";
+import type {QueryParamsType} from "@models/QueryParamsType.ts";
+import {apiThunk} from "@helpers/apiThunk.ts";
+import type {MovieDetailsType} from "@models/MovieDetailsType.ts";
 
 export const movieThunks = {
     loadMovies: createAsyncThunk('movieSlice/loadMovies', async (queryParams: QueryParamsType, thunkAPI) => {
         return await apiThunk<TMDBResDataType & TMDBResQueryType>(thunkAPI, urlBuilder(urls.movies.all, {...queryParams}))
     }),
     loadMovieById: createAsyncThunk('movieSlice/loadMovie', async (id: string, thunkAPI) => {
-        return await apiThunk<MovieType>(thunkAPI, urlBuilder(urls.movies.getById(id)))
+        return await apiThunk<MovieDetailsType>(thunkAPI, urlBuilder(urls.movies.getById(id)))
     }),
     loadMoviesByQuery: createAsyncThunk('movieSlice/loadMoviesByQuery', async (queryParams: QueryParamsType, thunkAPI) => {
         return await apiThunk<TMDBResDataType & TMDBResQueryType>(thunkAPI, urlBuilder(urls.movies.search, {...queryParams}))
