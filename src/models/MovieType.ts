@@ -1,53 +1,17 @@
 export type MovieType = {
-	adult: boolean;
-	backdrop_path: string;
-	belongs_to_collection: MovieTypeBelongs_to_collection;
-	budget: number;
-	genres: MovieTypeGenres[];
-	homepage: string;
 	id: number;
-	imdb_id: string;
-	origin_country: string[];
-	original_language: string;
-	original_title: string;
-	overview: string;
-	popularity: number;
-	poster_path: string;
-	production_companies: MovieTypeProduction_companies[];
-	production_countries: MovieTypeProduction_countries[];
-	release_date: string;
-	revenue: number;
-	runtime: number;
-	spoken_languages: MovieTypeSpoken_languages[];
-	status: string;
-	tagline: string;
 	title: string;
+	slugTitle: string;
+	original_title: string;
+	original_language: string;
+	overview: string;
+	poster_path: string | null;
+	backdrop_path: string | null;
+	release_date: string;
+	adult: boolean;
 	video: boolean;
+	popularity: number;
 	vote_average: number;
 	vote_count: number;
-}
-export type MovieTypeBelongs_to_collection = {
-	id: number;
-	name: string;
-	poster_path: string;
-	backdrop_path: string;
-}
-export type MovieTypeGenres = {
-	id: number;
-	name: string;
-}
-export type MovieTypeProduction_companies = {
-	id: number;
-	logo_path: string;
-	name: string;
-	origin_country: string;
-}
-export type MovieTypeProduction_countries = {
-	iso_3166_1: string;
-	name: string;
-}
-export type MovieTypeSpoken_languages = {
-	english_name: string;
-	iso_639_1: string;
-	name: string;
+	genre_ids: number[];
 }
