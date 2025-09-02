@@ -1,0 +1,14 @@
+.pageButton, .currentPage {
+    width: 50px;
+    height: 50px;
+    /*padding: 8px 14px;*/
+    border-radius: 8px;
+}
+
+.currentPage {
+    background: linear-gradient(135deg, #9b5de5, #6a0dad);
+}
+
+
+
+
