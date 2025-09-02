@@ -1,5 +1,5 @@
 import type {FC} from "react";
-import StarsRating from "../Rating/StarsRating/StarsRating";
+import StarsRating from "@components/Movies/Rating/StarsRating/StarsRating";
 import StarIcon from './StarsRating/star.svg?react'
 
 type MovieRatingProps = {
@@ -8,16 +8,15 @@ type MovieRatingProps = {
 };
 
 const MovieRating: FC<MovieRatingProps> = ({voteAverage, voteCount}) => {
+    if (!voteAverage && !voteCount) return <span className="flex gap-2 items-center whitespace-nowrap">No rating</span>;
     return (
-        <div className="flex gap-2 items-center whitespace-nowrap">
+        <div className="flex gap-2 items-center whitespace-nowrap max-[500px]:flex-col max-[500px]:items-start">
             <StarsRating
                 icon={StarIcon}
                 count={10}
                 defaultRating={Math.round(voteAverage)}
             />
-            <span className="text-sm text-yellow-500">
-        {voteAverage.toFixed(1)}/{voteCount} votes
-      </span>
+            <span className="text-sm text-yellow-500">{voteAverage.toFixed(1)}/{voteCount} votes</span>
         </div>
     );
 };
