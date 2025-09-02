@@ -9,6 +9,8 @@ export const genreBadgeStyles = cva(
         'text-sm',
         'text-black',
         'cursor-pointer',
+        'italic',
+        'text-gray-800'
     ],
     {
         variants: {
@@ -21,8 +23,6 @@ export const genreBadgeStyles = cva(
                     'h-7',
                     'flex-row-reverse',
                     'gap-2',
-                    'px-4!',
-                    'py-1!',
                     'rounded-full',
                 ],
             },

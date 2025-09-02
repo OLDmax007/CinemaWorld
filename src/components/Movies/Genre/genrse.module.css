@@ -1,12 +1,4 @@
-.genresList {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    width: 100%;
-    margin: 25px 0 25px 0;
-}
-
-.genresList a {
+.genreBadge {
     background: repeating-linear-gradient(
             135deg,
             #f5f5f5 0px,
@@ -19,8 +11,12 @@
     transition: transform 0.5s ease, box-shadow 0.3s ease;
 }
 
-.genresList a:hover {
+.genreBadge:hover {
     transform: scale(1.1);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.45);
+}
+
+.genreBadgeActive {
+    background: linear-gradient(to right, #60a5fa, #a78bfa) !important;
 }
 
