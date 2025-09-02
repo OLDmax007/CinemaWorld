@@ -7,6 +7,7 @@ import {useNavigate} from "react-router-dom";
 import {movieThunks} from "@redux/slices/movieSlice/movieThunks.ts";
 import {useAppDispatch} from "@hooks/useAppDispatch.ts";
 import {useAppQueryParams} from "@hooks/useAppQueryParams.ts";
+import {regexps} from "@constants/regexps.ts";
 
 const SearchForm = () => {
     const navigate = useNavigate()
@@ -22,7 +23,7 @@ const SearchForm = () => {
     const {page, query} = useAppQueryParams()
 
     useEffect(() => {
-        if (query) {
+        if (query && regexps.movieName.test(query)) {
             dispatch(movieThunks.loadMoviesByQuery({query, page}));
         }
     }, [dispatch, query, page]);
@@ -33,7 +34,7 @@ const SearchForm = () => {
     return (
         <form className={'flex-col w-full'} onSubmit={handleSubmit(handleSearchSubmit)}>
             <div className={'w-full flex flex-col justify-center items-center gap-2 mb-6!'}>
-                <span className={'text-red-500 italic'}>{errors.movieName && errors.movieName.message}</span>
+                <span className={'text-red-500 italic text-center'}>{errors.movieName && errors.movieName.message}</span>
                 <label className={'sr-only'} htmlFor="movieName">Search movies</label>
                 <input className={'w-65  max-[300px]:w-50 h-10 !pl-2 !pr-2 text-base border-2 border-gray-300 rounded-md'}
                        type="text" id="movieName" autoComplete="on" autoFocus
