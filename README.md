@@ -1,69 +1,58 @@
-# React + TypeScript + Vite
+# 🎬 CinemaWorld
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CinemaWorld is an application for searching and viewing movie information using the TMDB API
+---
 
-Currently, two official plugins are available:
+## 🚀 Technologies
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Expanding the ESLint configuration
+- **React + TypeScript**
+- **Vite**
+- **TailwindCSS**
+- **Axios**
+- **React Router**
+- **Redux Toolkit**
+---
+## ⚙️ Installation and Launch
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/username/cinemaworld.git](https://github.com/username/cinemaworld.git)
+    cd cinemaworld
+    ```
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+2.  **Install dependencies:**
+    ```bash
+    npm install
+    ```
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+3.  **Ensure the `.env` file** in the project's root contains the variables:
+    ```
+    VITE_TMDB_API_URL=https://api.themoviedb.org/3
+    VITE_TMDB_TOKEN=eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIwZGQ4NDYyMzg1M2VhYTJiNGUxZjY1NmVjNTUwOTIxMiIsIm5iZiI6MTczMzA2ODA1My45ODQsInN1YiI6IjY3NGM4NTE1NTdhMGU1MGEwNWU4ZmY3MSIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Oud52Y9tgAX4i7ELyj7v46No_1jSjpNVHOcTPa_n-kw
+    ```
+    > **Note:** If you want to use your own token, replace token with your API token.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+    ⚡️ **The token is already set up to work via `.env`.**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+4.  **Launch the project in development mode:**
+    ```bash
+    npm run dev
+    ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+---
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+## 🌐 Key Features
+
+- **🔍 Movie Search**
+- **📄 Movie Details Page**
+- **⭐️ Rating and Description**
+- **🖼 Posters and Trailers**
+- **📱 Responsive Design**
+
+---
+
+## 🛠 Production Build
+
+```bash
+npm run build
