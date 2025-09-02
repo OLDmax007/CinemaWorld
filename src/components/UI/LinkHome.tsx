@@ -4,7 +4,7 @@ const LinkHome = () => {
     return (
         <Link
             to={'/'}
-            className={'link-home p-2!'}
+            className={'link-home w-[150px] text-center p-2!'}
         >
             Go back Home
         </Link>
