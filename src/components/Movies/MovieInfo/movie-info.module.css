@@ -1,0 +1,11 @@
+.movieInfoList span {
+    padding-left: 5px;
+}
+
+.movieInfoList strong {
+    color: sandybrown;
+    text-decoration: underline;
+}
+
+
+
