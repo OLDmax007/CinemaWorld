@@ -1,33 +1,28 @@
 import type {FC} from "react";
-import type {MovieType} from "../../../models/MovieType.ts";
-import StarsRating from "../Rating/StarsRating.tsx";
-import Poster from "../Poster/Poster.tsx";
-import StarIcon from '../Rating/star.svg?react'
+import type {MovieType} from "@models/MovieType.ts";
+import Poster from "@components/Movies/Poster/Poster.tsx";
 import {Link} from "react-router-dom";
+import MovieRating from "@components/Movies/Rating/MovieRating.tsx";
+import {getYearFromDate} from "@helpers/getYearFromDate.ts";
+import {kebabCase} from "lodash";
 
 type MoviesListCardProps = {
     movie: MovieType
 }
 
-
 const MoviesListCard: FC<MoviesListCardProps> = ({movie}) => {
-    const date = new Date(movie.release_date)
-
+    const linkToMovie = `/movie/${kebabCase(movie.title)}/${movie.id}`
     return (
-        <li>
-            <Link to={`/movie/${movie.title}/${movie.id}`}>
+        <li className={'flex flex-col items-center justify-center'}>
+            <Link to={linkToMovie}>
             <Poster posterPath={movie.poster_path}/>
             </Link>
-            <div>
-            <Link to={`/movie/${movie.title}/${movie.id}`}>
-                <h3>{movie.title}</h3>
+            <div className={'flex flex-col items-start max-[800px]:items-center max-[800px]:text-center'}>
+                <Link to={linkToMovie}>
+                    <h3 className={'w-[250px] overflow-hidden text-ellipsis whitespace-nowrap'}>{movie.title || 'No title'}</h3>
             </Link>
-            <span>{date ? date.getFullYear() : 0}</span>
-            <div className={'flex gap-5 items-center  whitespace-nowrap'}>
-                <StarsRating icon={StarIcon} count={10}
-                             defaultRating={Math.round(movie.vote_average)}/>
-                    <span className="text-sm text-yellow-500">{movie.vote_average}/{movie.vote_count} votes</span>
-            </div>
+                <span>{getYearFromDate(movie.release_date) || 'No release date'}</span>
+                <MovieRating voteAverage={movie.vote_average} voteCount={movie.vote_count}/>
             </div>
         </li>
     );
