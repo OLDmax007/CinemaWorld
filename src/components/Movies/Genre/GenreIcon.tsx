@@ -1,14 +1,18 @@
-import {getGenreIcon} from "../../../helpers/getGenreIcon.tsx";
 import {type FC} from "react";
 import {type GenreBadgeProps} from "./GenreBadge.tsx";
+import sprite from '@assets/sprite.svg'
+import {genreIconStyles} from "./styles/genreIcon.styles.ts";
 
-type GenreIconProps = {
-    className: string
-}  & Pick<GenreBadgeProps, 'genre'>
+type GenreIconProps = {} & Pick<GenreBadgeProps, 'genre' | 'size'>
 
-const GenreIcon: FC<GenreIconProps> = ({ genre, className }) => {
-    const Icon = getGenreIcon(genre);
-    return <Icon className={className} />;
+const GenreIcon: FC<GenreIconProps> = ({genre: {slugName}, size}) => {
+    return (
+        <svg className={`${genreIconStyles({size})}`}>
+            <use xlinkHref={`${sprite}#${slugName}`}/>
+        </svg>
+    )
+
+
 };
 
 export default GenreIcon
