@@ -1,4 +1,4 @@
-import {apiService} from "../services/api.service.ts";
+import {apiService} from "@/services/api.service.ts";
 import {handleError} from "./handleError.ts";
 import type {GetThunkAPI} from "@reduxjs/toolkit";
 

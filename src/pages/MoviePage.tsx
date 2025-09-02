@@ -1,5 +1,4 @@
-import MovieInfo from "../components/Movies/Movie/MovieInfo.tsx";
-import styles from '../components/Movies/Movie/movie-info.module.css'
+import MovieInfo from "@components/Movies/MovieInfo/MovieInfo.tsx";
 import {Navigate, useParams} from "react-router-dom";
 
 const MoviePage = () => {
@@ -7,7 +6,7 @@ const MoviePage = () => {
     if (!movieId || !movieName) return <Navigate to={'/404'} replace/>
 
     return (
-        <section className={styles.movieInfoSection}>
+        <section className={'flex justify-center items-center flex-col gap-8 p-4'}>
             <MovieInfo movieId={movieId} movieName={movieName}/>
         </section>
     );

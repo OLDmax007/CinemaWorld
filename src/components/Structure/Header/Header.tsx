@@ -1,5 +1,5 @@
-import Menu from "./Menu.tsx";
-import UserInfo from "../../User/UserInfo.tsx";
+import Menu from "./Menu/Menu.tsx";
+import UserInfo from "./UserInfo.tsx";
 import {Link} from "react-router-dom";
 
 const Header = () => {

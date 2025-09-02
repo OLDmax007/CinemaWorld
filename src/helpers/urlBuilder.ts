@@ -1,4 +1,4 @@
-import type {QueryParamsType} from "../models/QueryParamsType.ts";
+import type {QueryParamsType} from "@models/QueryParamsType.ts";
 
 export const urlBuilder = (endpoint: string, queryParams?: QueryParamsType) => {
     const url = `/${endpoint.replace(/^\//, '')}`;

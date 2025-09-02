@@ -1,6 +1,6 @@
-import SocialMediaNav from "./SocialMediaNav.tsx";
-import FooterNav from "./FooterNav.tsx";
-import DownloadNav from "./DownloadNav.tsx";
+import SocialMediaNav from "./Nav/SocialMediaNav.tsx";
+import FooterNav from "./Nav/FooterNav.tsx";
+import DownloadNav from "./Nav/DownloadNav.tsx";
 
 
 const Footer = () => {

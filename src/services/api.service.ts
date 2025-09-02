@@ -1,5 +1,5 @@
 import {axiosInstance} from "./axiosInstance.ts";
-import {handleError} from "../helpers/handleError.ts";
+import {handleError} from "@helpers/handleError.ts";
 
 export const apiService = {
     get: async <T>(url: string):Promise<T> => {

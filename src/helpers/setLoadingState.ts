@@ -1,5 +1,5 @@
-import type {movieSliceStateType} from "../redux/slices/movieSlice/movieSliceState.ts";
-import {movieThunks} from "../redux/slices/movieSlice/movieThunks.ts";
+import type {movieSliceStateType} from "@redux/slices/movieSlice/movieSliceState.ts";
+import {movieThunks} from "@redux/slices/movieSlice/movieThunks.ts";
 
 export const setLoadingState = (state: movieSliceStateType, actionType: string, flag: boolean) => {
     type ThunkKey = keyof typeof movieThunks;

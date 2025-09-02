@@ -1,9 +1,9 @@
-import MoviesList from "../components/Movies/MoviesList/MoviesList.tsx";
+import MoviesSearchList from "@components/Movies/MoviesList/MoviesSearchList.tsx";
 
 const MovieSearchPage = () => {
     return (
         <>
-            <MoviesList/>
+            <MoviesSearchList/>
         </>
     );
 };

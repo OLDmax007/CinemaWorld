@@ -1,4 +1,4 @@
-import ErrorBlock from "../components/UI/ErrorBlock.tsx";
+import ErrorBlock from "@components/UI/ErrorBlock.tsx";
 
 const ErrorPage = () => {
     return (
