@@ -1,34 +1,26 @@
 import {type FC} from "react";
-import type {GenreType} from "../../../models/GenreType.ts";
-import {genreIconStyles} from "./styles/genreIcon.styles.ts";
+import type {GenreType} from "@models/GenreType.ts";
 import type {GenresProps} from "./Genres.tsx";
 import {genreBadgeStyles} from "./styles/genreBadge.styles.ts";
-import {genreNameStyles} from "./styles/genreName.styles.ts";
 import GenreIcon from "./GenreIcon.tsx";
 import {Link} from "react-router-dom";
+import styles from './genrse.module.css'
 
-export type GenreBadgeProps = Pick<GenresProps, 'variant'> & {
+export type GenreBadgeProps = Pick<GenresProps, 'variant' | 'size'> & {
     genre: GenreType;
+    isActive: boolean
 };
 
-const GenreBadge: FC<GenreBadgeProps> = ({genre, variant}) => {
-
-    const content =
-        <div className={genreBadgeStyles({variant})}>
-            <span className={genreNameStyles({variant})}>{genre.name}</span>
-            <span><GenreIcon className={genreIconStyles({variant})} genre={genre}/></span>
-        </div>
+const GenreBadge: FC<GenreBadgeProps> = ({genre, variant, size, isActive}) => {
     return (
-        <>
-
-            {variant === 'filter' ? (
-                <Link to={genre.id === 0 ? '/movies' : `/${genre.name}/${genre.id}`}>
-                    {content}
+        <li>
+            <Link
+                className={`${styles.genreBadge} ${genreBadgeStyles({variant})} ${(isActive) && styles.genreBadgeActive}`}
+                to={`/genre/${genre.slugName}/${genre.id}`}>
+                <span>{genre.name}</span>
+                <span><GenreIcon size={size} genre={genre}/></span>
                 </Link>
-            ) : (
-                content
-            )}
-        </>
+        </li>
     );
 };
 
