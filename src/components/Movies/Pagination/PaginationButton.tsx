@@ -16,6 +16,7 @@ const PaginationButton: FC<PaginationButtonProps> = ({currentPage, targetPage, t
 
     return (
         <button
+            type={"button"}
             className={styles.pageButton}
             disabled={isDisabled}
             onClick={() => onPageChange(currentPage)}

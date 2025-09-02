@@ -18,6 +18,7 @@ const PageNumButtons: FC<PageNumButtonsProps> = ({currentPage, totalPages, onPag
                 return (
                     <button
                         key={page}
+                        type={"button"}
                         className={page === currentPage ? styles.currentPage : styles.pageButton}
                         onClick={() => onPageChange(page)}
                     >
