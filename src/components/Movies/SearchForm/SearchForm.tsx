@@ -28,6 +28,7 @@ const SearchForm = () => {
         }
     }, [dispatch, query, page]);
     const handleSearchSubmit = (data: MovieSearchFormDataType) => {
+        if (!data.movieName?.trim()) return;
         navigate(`/search/?query=${data.movieName}`);
         reset()
     };
