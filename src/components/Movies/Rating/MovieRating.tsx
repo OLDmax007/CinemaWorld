@@ -10,7 +10,7 @@ type MovieRatingProps = {
 const MovieRating: FC<MovieRatingProps> = ({voteAverage, voteCount}) => {
     if (!voteAverage && !voteCount) return <span className="flex gap-2 items-center whitespace-nowrap">No rating</span>;
     return (
-        <div className="flex gap-2 items-center whitespace-nowrap max-[500px]:flex-col max-[500px]:items-start">
+        <div className="flex gap-2 items-center whitespace-nowrap max-[300px]:flex-col max-[300px]:items-ceter">
             <StarsRating
                 icon={StarIcon}
                 count={10}

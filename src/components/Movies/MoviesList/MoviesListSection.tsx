@@ -16,7 +16,7 @@ const MoviesListSection: FC<MoviesListSectionProps> = ({movies, queryMeta}) => {
     const {query} = useAppQueryParams()
     return (
         <section className={`flex flex-col justify-center items-center min-h-screen !px-12`}>
-            <h2>
+            <h2 className={'text-center'}>
                 {genreName
                     ? `Movies by genre: ${genreName}`
                     : query

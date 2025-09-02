@@ -17,9 +17,9 @@ const MoviesListCard: FC<MoviesListCardProps> = ({movie}) => {
             <Link to={linkToMovie}>
             <Poster posterPath={movie.poster_path}/>
             </Link>
-            <div className={'flex flex-col items-start max-[800px]:items-center max-[800px]:text-center'}>
+            <div className={'flex flex-col items-start max-[300px]:items-center max-[300px]:text-center'}>
                 <Link to={linkToMovie}>
-                    <h3 className={'w-[250px] overflow-hidden text-ellipsis whitespace-nowrap'}>{movie.title || 'No title'}</h3>
+                    <h3 className={'w-[250px] max-[300px]:w-50 overflow-hidden text-ellipsis whitespace-nowrap'}>{movie.title || 'No title'}</h3>
             </Link>
                 <span>{getYearFromDate(movie.release_date) || 'No release date'}</span>
                 <MovieRating voteAverage={movie.vote_average} voteCount={movie.vote_count}/>
