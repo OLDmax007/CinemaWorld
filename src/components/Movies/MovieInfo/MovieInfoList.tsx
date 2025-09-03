@@ -32,7 +32,7 @@ const MovieInfoList: FC<MovieInfoListProps> = ({movie}) => {
                 <strong>Runtime:</strong>
                 <span>{movie.runtime ? `${movie.runtime} min` : 'No runtime'}</span>
             </li>
-            <li>
+            <li className={'w-50'}>
                 <strong>Genres:</strong>
                 <Genres genres={movie.genres} variant="filter" size="small"/>
             </li>
