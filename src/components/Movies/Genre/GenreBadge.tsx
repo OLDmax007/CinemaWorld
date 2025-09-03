@@ -15,10 +15,6 @@ const GenreBadge: FC<GenreBadgeProps> = ({genre, variant, size, isActive}) => {
     return (
         <li>
             <Link
-                onClick={() => {
-                    const element = document.getElementById('movies-section');
-                    if (element) element.scrollIntoView({behavior: 'smooth'});
-                }}
                 className={`${styles.genreBadge} ${genreBadgeStyles({variant})} ${(isActive) && styles.genreBadgeActive}`}
                 to={`/genre/${genre.slugName}/${genre.id}`}>
                 <span>{genre.name}</span>

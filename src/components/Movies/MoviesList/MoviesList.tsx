@@ -1,6 +1,6 @@
 import {useAppSelector} from "@hooks/useAppSelector.ts";
 import type {MovieType} from "@models/MovieType.ts";
-import {useCallback} from "react";
+import {useCallback, useEffect, useRef} from "react";
 import {useAppQueryParams} from "@hooks/useAppQueryParams.ts";
 import {movieThunks} from "@redux/slices/movieSlice/movieThunks.ts";
 import {useAppThunkData} from "@hooks/useAppThunkData.ts";
@@ -23,11 +23,18 @@ const MoviesList = () => {
 
     const movies = useAppThunkData<MovieType[]>(loadMoviesCallback, (state) => state.movies)
 
+    const sectionRef = useRef<HTMLDivElement>(null);
+    useEffect(() => sectionRef.current?.scrollIntoView({ behavior: "smooth" }), [genreId]);
+
     if (isLoadingMovies) return <LoadingWrapper/>
 
     if (!movies || !movies.length) return <EmptyMovies message="Movies not found"/>;
 
-    return <MoviesListSection movies={movies} queryMeta={queryMeta}/>
+    return (
+        <section ref={sectionRef} className={`flex flex-col justify-center items-center min-h-screen !px-12`}>
+            <MoviesListSection movies={movies} queryMeta={queryMeta}/>
+        </section>
+    )
 };
 
 export default MoviesList;
