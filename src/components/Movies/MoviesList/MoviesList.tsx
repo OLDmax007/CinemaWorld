@@ -24,7 +24,11 @@ const MoviesList = () => {
     const movies = useAppThunkData<MovieType[]>(loadMoviesCallback, (state) => state.movies)
 
     const sectionRef = useRef<HTMLDivElement>(null);
-    useEffect(() => sectionRef.current?.scrollIntoView({ behavior: "smooth" }), [genreId]);
+    useEffect(() => {
+        if (genreId && +genreId >= 0) {
+            sectionRef.current?.scrollIntoView({ behavior: "smooth" });
+        }
+    }, [genreId]);
 
     if (isLoadingMovies) return <LoadingWrapper/>
 
