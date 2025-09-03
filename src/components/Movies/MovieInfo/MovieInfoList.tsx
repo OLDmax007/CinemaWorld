@@ -4,7 +4,6 @@ import Genres from "@components/Movies/Genre/Genres.tsx";
 import MovieRating from "@components/Movies/Rating/MovieRating.tsx";
 import type {MovieDetailsType} from "@models/MovieDetailsType.ts";
 import {getYearFromDate} from "@helpers/getYearFromDate.ts";
-import {Link} from "react-router-dom";
 
 type MovieInfoListProps = {
     movie: MovieDetailsType;
@@ -62,7 +61,9 @@ const MovieInfoList: FC<MovieInfoListProps> = ({movie}) => {
             </li>
             <li>
                 <strong>Home page</strong>
-                <span><Link to={movie.homepage}>{movie.homepage || 'No homepage'}</Link></span>
+                <span>{movie.homepage ?
+                        <a href={movie.homepage} target="_blank" rel="noopener noreferrer"> {movie.homepage}</a>
+                         : 'No homepage'}</span>
             </li>
 
         </ul>
